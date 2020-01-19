@@ -6,7 +6,9 @@ package threadProfile;
  */
 public class Daemon {
     public static void main(String[] args) {
-        new Thread(new DaemonThread(), "daemon_thread").start();
+        Thread daemonThread = new Thread(new DaemonThread(), "daemon_thread");
+        daemonThread.setDaemon(true);
+        daemonThread.start();
     }
 
     static class DaemonThread implements Runnable {
